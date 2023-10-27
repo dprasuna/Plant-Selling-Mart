@@ -288,7 +288,7 @@ const app = new Vue({
             // back delay
             setTimeout(() => {
                 // create mailto string
-                let email = 'mailto:deserthopesl@gmail.com'
+                let email = 'mailto:prasunadash2005@gmail.com'
                 // include subject with timestamp
                 email += '?subject=' + encodeURI('Order Submit (' + Date.now() + ')')
                 // include items
