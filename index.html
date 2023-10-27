@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="256x256" href="./index.png">
+    <link rel="shortcut icon" href="./index.png" type="image/x-icon">
+    <link rel="mask-icon" href="./assets/images/icons/icon_192.png" color="#ffffff">
+    <!-- manifest -->
+    <link href="./manifest.webmanifest" rel="manifest">
+    <!-- preloads -->
+    <link rel="preload" href="./assets/fonts/CircularStd-Book.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="./assets/fonts/CircularStd-Bold.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="./assets/fonts/CircularStd-Black.woff" as="font" type="font/woff" crossorigin>
+    <!-- styles -->
+    <link rel="stylesheet" href="./index.css">
+    <!-- libraries -->
+    <script src="./assets/libraries/vue.min.js"></script>
+    <script src="./assets/libraries/model-viewer.min.js"></script>
+    <!-- scripts -->
+    <script src="./index.js" defer></script>
+    <!-- page title -->
+    <title>PLANT SELLING MART</title>
+    <script>
+        // localStorage.clear()
+        window.onerror = function () {
+            alert(1)
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- explore page -->
+        <div class="page explore">
+            <!-- ribbon -->
+            <div class="explore-ribbon">
+                <div class="explore-ribbon-find"></div>
+                <div class="explore-ribbon-like">
+                    <div class="ribbon-like"
+                        @click="navigate('likes')">
+                    </div>
+                </div>
+                <div class="explore-ribbon-cart">
+                    <div class="ribbon-cart"
+                        :count="cart_count"
+                        @click="navigate('cart')">
+                    </div>
+                </div>
+            </div>
+            <!-- tagged groups -->
+            <div class="explore-tags">
+                <!-- tags tabs -->
+                <div class="explore-tags-tabs">
+                    <div class="explore-tags-tab"
+                        :active="explore.tag_id === 'popular'"
+                        @click="explore.tag_id = 'popular'">
+                        Popular
+                    </div>
+                    <div class="explore-tags-tab"
+                        :active="explore.tag_id === 'newest'"
+                        @click="explore.tag_id = 'newest'">
+                        Newest
+                    </div>
+                    <div class="explore-tags-tab"
+                        :active="explore.tag_id === 'trending'"
+                        @click="explore.tag_id = 'trending'">
+                        Trending
+                    </div>
+                </div>
+                <!-- tags content -->
+                <div class="explore-tags-content">
+                    <div class="explore-tags-content-inner">
+                        <div class="explore-tags-item"
+                            v-for="item in explore.tags[explore.tag_id]"
+                            @click="navigate('product', item.id + ':' + item.types[0].id)">
+                            <div class="tags-item-image"
+                                :style="{ backgroundImage: `url(${item.image})` }">
+                            </div>
+                            <div class="tags-item-info">
+                                <div class="tags-item-name">
+                                    {{item.name}}
+                                </div>
+                                <div class="tags-item-category">
+                                    {{item.category.name}}
+                                </div>
+                                <div class="tags-item-price">
+                                    {{item.types[0].price}} LKR
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- all products -->
+            <div class="explore-categories">
+                <div
+                    class="explore-all-item" v-for="item in data.products"
+                    @click="navigate('product', item.id + ':' + item.types[0].id)">
+                    <div
+                        class="explore-all-item-image"
+                        :style="{ backgroundImage: `url(${item.image})` }"
+                    ></div>
+                    <div class="explore-all-item-title">
+                        {{item.name}}
+                    </div>
+                    <div class="explore-all-item-price">
+                        {{item.types[0].price}} LKR
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- likes page -->
+        <div class="page likes" :active="page === 'likes' || page === 'product' || page === 'reality' || page === 'cart' || page === 'submit'">
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+                <div class="ribbon-title">
+                    Wishlist
+                </div>
+                <div class="ribbon-cart"
+                    :count="cart_count"
+                    @click="navigate('cart')">
+                </div>
+            </div>
+            <div class="likes-inner">
+                <div
+                    class="cart-item"
+                    v-for="(item, index) in like_data"
+                    @click="event => viewLikeProduct(item, event)">
+                    <div class="cart-item-image"
+                        :style="{ backgroundImage: `url(${item.type.image})` }">
+                    </div>
+                    <div class="cart-item-content">
+                        <div class="cart-item-name">
+                            {{ item.main.name }}
+                        </div>
+                        <div class="cart-item-type">
+                            {{ item.type.name }}
+                        </div>
+                        <div class="cart-item-price">
+                            {{ item.type.price }} LKR
+                        </div>
+                        <div class="cart-item-options">
+                            <div
+                                class="cart-item-add"
+                                @click="addToCart(item.data.item_id, item.data.type_id)">
+                                Add to Cart
+                            </div>
+                            <div
+                                class="cart-item-del"
+                                @click="deleteLikeItem(index)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- product page -->
+        <div class="page product" :active="page === 'product' || page === 'reality' || page === 'cart' || page === 'submit'">
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+                <div class="ribbon-cart"
+                    :count="cart_count"
+                    @click="navigate('cart')">
+                </div>
+            </div>
+            <div class="product-inner" @scroll="updateScroll">
+                <!-- images slider -->
+                <div class="product-sliders">
+                    <div class="product-slider-tray">
+                        <div class="product-slider-tray-inner"
+                            :index="product_data.types.indexOf(product_type)"
+                            :style="{ width: `calc(${product_data.types.length} * 100vw)` }">
+                            <div class="product-slider"
+                                v-for="type in product_data.types"
+                                :style="{ backgroundImage: `url(${type.image})` }">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-slider-dots">
+                        <div class="product-slider-dots-inner">
+                            <div class="product-slider-dot"
+                                v-for="type in product_data.types"
+                                :active="type.id === product.type_id"
+                                @click="product.type_id = type.id">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- product content -->
+                <div class="product-content">
+                    <div class="product-header">
+                        <!-- price -->
+                        <div class="price">
+                            {{ product_type.price }} LKR
+                        </div>
+                        <!-- likes -->
+                        <div class="heart" :active="product_like"
+                            @click="likeProduct(product.item_id, product.type_id)">
+                        </div>
+                        <!-- ar button -->
+                        <div class="reality"
+                            @click="navigate('reality', product.type_id)">
+                        </div>
+                    </div>
+                    <!-- product name -->
+                    <div class="product-title">
+                        {{ product_data.name }}
+                    </div>
+                    <!-- product type buttons -->
+                    <div class="product-types">
+                        <div class="product-type"
+                            v-for="type in product_data.types"
+                            :active="type.id === product.type_id"
+                            @click="product.type_id = type.id">
+                            {{ type.name }}
+                        </div>
+                    </div>
+                    <!-- content tab buttons -->
+                    <div class="product-tabs">
+                        <div class="product-tab"
+                            :active="product.tab === 'details'"
+                            @click="product.tab = 'details'">
+                            Details
+                        </div>
+                        <div class="product-tab"
+                            :active="product.tab === 'packaging'"
+                            @click="product.tab = 'packaging'">
+                            Packaging
+                        </div>
+                    </div>
+                    <!-- product details tab -->
+                    <div class="product-details"
+                        v-if="product.tab === 'details'">
+                        <div class="product-details-data"
+                            v-for="data in product_data.details">
+                            {{ data }}
+                        </div>
+                    </div>
+                    <!-- product packaging tab -->
+                    <div class="product-packaging"
+                        v-if="product.tab === 'packaging'">
+                        <div class="product-packaging-data"
+                            v-for="data in product_data.packaging">
+                            <div class="product-packaging-data-label">
+                                {{ data.label }}
+                            </div>
+                            <div class="product-packaging-data-value">
+                                {{ data.value }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- add to cart button -->
+            <div class="product-cart">
+                <button class="product-cart-button"
+                    :disabled="!product_type.available"
+                    @click="addToCart(product.item_id, product.type_id)">
+                    {{ product_type.available ? 'Add to Cart' : 'Out of Stock' }}
+                </button>
+            </div>
+        </div>
+
+        <!-- cart page -->
+        <div class="page cart" :active="page === 'cart' || page === 'submit'">
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+                <div class="ribbon-title">
+                    Cart
+                </div>
+                <div class="ribbon-total">
+                    {{ cart_total }} LKR
+                </div>
+            </div>
+            <div class="cart-inner" :total="profile.cart.length">
+                <div class="cart-item" v-for="(item, index) in cart_data">
+                    <div class="cart-item-image"
+                        :style="{ backgroundImage: `url(${item.type.image})` }">
+                    </div>
+                    <div class="cart-item-content">
+                        <div class="cart-item-name">
+                            {{ item.main.name }}
+                        </div>
+                        <div class="cart-item-type">
+                            {{ item.type.name }}
+                        </div>
+                        <div class="cart-item-price">
+                            {{ item.type.price }} LKR
+                        </div>
+                        <div class="cart-item-options">
+                            <div class="cart-item-qty-outer">
+                                <div
+                                    class="qty-btn rem"
+                                    :disabled="item.data.quantity === 1"
+                                    @click="updateCartItem(index, -1)">
+                                </div>
+                                <div class="cart-item-qty-val">
+                                    {{ item.data.quantity }}
+                                </div>
+                                <div
+                                    class="qty-btn add"
+                                    :disabled="item.data.quantity === 99"
+                                    @click="updateCartItem(index, +1)">
+                                </div>
+                            </div>
+                            <div
+                                class="cart-item-del"
+                                @click="deleteCartItem(index)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- sumbit cart button -->
+            <div class="product-cart">
+                <button class="product-cart-button"
+                    :disabled="profile.cart.length === 0"
+                    @click="submitCart">
+                    Submit Cart Items
+                </button>
+            </div>
+        </div>
+
+        <!-- submit page -->
+        <div class="page submit" :active="page === 'submit'">
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+                <div class="ribbon-title">
+                    Submit Your Order
+                </div>
+            </div>
+            <div class="submit-inner">
+                <div class="submit-intro">
+                    Please fill out your contact information
+                    to submit your order through email.
+                </div>
+                <input
+                    type="text"
+                    placeholder="Full Name"
+                    v-model="profile.info.name"
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <input
+                    type="text"
+                    placeholder="Mobile No."
+                    v-model="profile.info.mobile"
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <input
+                    type="text"
+                    placeholder="Email"
+                    v-model="profile.info.email"
+                    spellcheck="false"
+                    autocomplete="off"
+                />
+                <textarea
+                    placeholder="Address"
+                    v-model="profile.info.address"
+                    spellcheck="false"
+                    autocomplete="off">
+                </textarea>
+            </div>
+            <!-- sumbit cart button -->
+            <div class="product-cart">
+                <button class="product-cart-button"
+                    :disabled="profile.cart.length === 0"
+                    @click="submitMail">
+                    Submit Order
+                </button>
+            </div>
+        </div>
+
+        <!-- reality page -->
+        <div class="page reality" :active="page === 'reality'">
+            <!-- ribbon -->
+            <div class="ribbon" :solid="ribbon.solid">
+                <div class="ribbon-back" @click="back"></div>
+            </div>
+            <!-- model viewer -->
+            <div class="reality-outer" v-if="page === 'reality'">
+                <model-viewer
+                    alt="Location Model"
+                    ar
+                    scale="0.1 0.1 0.1"
+                    :src="reality.model"
+                    ar-modes="webxr scene-viewer quick-look"
+                    seamless-poster
+                    shadow-intensity="1"
+                    camera-controls
+                ></model-viewer>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

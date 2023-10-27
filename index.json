@@ -1,0 +1,366 @@
+{
+    "products": [
+        {
+            "id": "ECHEVERIA_AMOENA",
+            "name": "Echeveria Amoena",
+            "image": "assets/images/products/echeveria_amoena.png",
+            "category": {
+                "id": "CRASSULACEAE",
+                "name": "Crassulaceae"
+            },
+            "tags": [
+                "newest",
+                "popular"
+            ],
+            "types": [
+                {
+                    "id": "ECHEVERIA_AMOENA_BLUE_CERAMIC_POT",
+                    "name": "Blue Ceramic",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 1200,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_CEMENT_ROUND_POT",
+                    "name": "Cement Round",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 850,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_WOODEN_POT",
+                    "name": "Wooden",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 1000,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_CEMENT_POT",
+                    "name": "Cement",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 900,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_AMOENA_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/echeveria_amoena.png",
+                    "price": 1800,
+                    "available": true
+                }
+            ],
+            "details": [
+                "Echeveria amoena is a clump-forming species with attractive grey-green leaves. It features yellow-orange flowers and will take on a red colouring in strong light. Perfect for adding to your indoor succulent collection as a standalone specimen or with others.",
+                "It is a herbaceous, perennial plant with a stem up to 8 cm long. It grows in the form of a compact rosette, commonly less than 5 cm in diameter, with fleshy, obovate-oblanceolate, full-margin and accumulated apex leaves."
+            ],
+            "packaging": [
+                {
+                    "label": "Weight",
+                    "value": "3kg"
+                },
+                {
+                    "label": "Width",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Length",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Height",
+                    "value": "40cm"
+                }
+            ]
+        },
+        {
+            "id": "PERLE_VON_NERNBERG",
+            "name": "Perle Von Nernberg",
+            "image": "assets/images/products/perle_von_nernberg.png",
+            "category": {
+                "id": "SUCCLENTS",
+                "name": "Succulents"
+            },
+            "tags": [
+                "newest",
+                "trending"
+            ],
+            "types": [
+                {
+                    "id": "PERLE_VON_NERNBERG_BLUE_CERAMIC_POT",
+                    "name": "Blue Ceramic",
+                    "image": "assets/images/products/perle_von_nernberg.png",
+                    "price": 1200,
+                    "available": true
+                },
+                {
+                    "id": "PERLE_VON_NERNBERG_CEMENT_ROUND_POT",
+                    "name": "Cement Round",
+                    "image": "assets/images/products/perle_von_nernberg.png",
+                    "price": 850,
+                    "available": true
+                },
+                {
+                    "id": "PERLE_VON_NERNBERG_WOODEN_POT",
+                    "name": "Wooden",
+                    "image": "assets/images/products/perle_von_nernberg.png",
+                    "price": 1000,
+                    "available": true
+                },
+                {
+                    "id": "PERLE_VON_NERNBERG_CEMENT_POT",
+                    "name": "Cement",
+                    "image": "assets/images/products/perle_von_nernberg.png",
+                    "price": 900,
+                    "available": true
+                },
+                {
+                    "id": "PERLE_VON_NERNBERG_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/perle_von_nernberg.png",
+                    "price": 1800,
+                    "available": true
+                }
+            ],
+            "details": [
+                "If you are searching for an uncomplaining plant with cherubic appeal and beautiful form and color, look no further than Perle von Nurnberg Echeveria.",
+                "Among the most popular Echeverias with florists, 'Perle von Nurnberg' is a small evergreen succulent of breathtaking beauty. It forms a solitary rosette of fleshy, rounded, pointed, pastel gray leaves adorned with purplish-pink highlights. The nicely overlapping leaves are delicately dusted with a fine white powder (pruinose), which adds to the plant's appeal. Over time, the rosette grows up on a slender stem. This variety is one of the most prolific echeverias, often sending up 5 or 6 flowering spikes of coral pink flowers per year. 'Perle von Nurnberg' is highly valued in floral arrangements, wedding bouquets or containers."
+            ],
+            "packaging": [
+                {
+                    "label": "Weight",
+                    "value": "3kg"
+                },
+                {
+                    "label": "Width",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Length",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Height",
+                    "value": "40cm"
+                }
+            ]
+        },
+        {
+            "id": "ECHEVERIA_LONGISSIMA",
+            "name": "Echeveria Longissima",
+            "image": "assets/images/products/echeveria_longissima.png",
+            "category": {
+                "id": "SUCCLENTS",
+                "name": "Succulents"
+            },
+            "tags": [
+                "newest",
+                "popular"
+            ],
+            "types": [
+                {
+                    "id": "ECHEVERIA_LONGISSIMA_BLUE_CERAMIC_POT",
+                    "name": "Blue Ceramic",
+                    "image": "assets/images/products/echeveria_longissima.png",
+                    "price": 1200,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_LONGISSIMA_CEMENT_ROUND_POT",
+                    "name": "Cement Round",
+                    "image": "assets/images/products/echeveria_longissima.png",
+                    "price": 850,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_LONGISSIMA_WOODEN_POT",
+                    "name": "Wooden",
+                    "image": "assets/images/products/echeveria_longissima.png",
+                    "price": 1000,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_LONGISSIMA_CEMENT_POT",
+                    "name": "Cement",
+                    "image": "assets/images/products/echeveria_longissima.png",
+                    "price": 900,
+                    "available": true
+                },
+                {
+                    "id": "ECHEVERIA_LONGISSIMA_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/echeveria_longissima.png",
+                    "price": 1800,
+                    "available": true
+                }
+            ],
+            "details": [
+                "Echeveria longissima is a beautiful succulent that forms a short-stemmed rosette of green leaves with red margins.",
+                "Echeveria Longissima is best known to be a beautiful succulent. As the plant matures you can expect it to grow beautiful green leaves that have pink edges. When it flowers you can expect it to produce bell-shaped flowers that are mostly pale green from the middle."
+            ],
+            "packaging": [
+                {
+                    "label": "Weight",
+                    "value": "3kg"
+                },
+                {
+                    "label": "Width",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Length",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Height",
+                    "value": "40cm"
+                }
+            ]
+        },
+        {
+            "id": "PARODIA_LENINGHAUSII",
+            "name": "Parodia Leninghausii",
+            "image": "assets/images/products/parodia_leninghausii.png",
+            "category": {
+                "id": "CACTACEAE",
+                "name": "Cactaceae"
+            },
+            "tags": [
+                "newest",
+                "popular",
+                "trending"
+            ],
+            "types": [
+                {
+                    "id": "PARODIA_LENINGHAUSII_BLUE_CERAMIC_POT",
+                    "name": "Blue Ceramic",
+                    "image": "assets/images/products/parodia_leninghausii.png",
+                    "price": 1200,
+                    "available": true
+                },
+                {
+                    "id": "PARODIA_LENINGHAUSII_CEMENT_ROUND_POT",
+                    "name": "Cement Round",
+                    "image": "assets/images/products/parodia_leninghausii.png",
+                    "price": 850,
+                    "available": true
+                },
+                {
+                    "id": "PARODIA_LENINGHAUSII_WOODEN_POT",
+                    "name": "Wooden",
+                    "image": "assets/images/products/parodia_leninghausii.png",
+                    "price": 1000,
+                    "available": true
+                },
+                {
+                    "id": "PARODIA_LENINGHAUSII_CEMENT_POT",
+                    "name": "Cement",
+                    "image": "assets/images/products/parodia_leninghausii.png",
+                    "price": 900,
+                    "available": true
+                },
+                {
+                    "id": "PARODIA_LENINGHAUSII_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/parodia_leninghausii.png",
+                    "price": 1800,
+                    "available": true
+                }
+            ],
+            "details": [
+                "Parodia leninghausii is a species of South American cactus commonly found as a houseplant. Common names include lemon ball cactus, golden ball cactus and yellow tower cactus.",
+                "This species grows in hilly grassland and on walls between cracks in the rocks or in the shade of larger growing plants in pine forest. This species is abundant where it occurs. Many of its subpopulations have been extirpated. It grows in one of the most temperate region of the countries with warm and cool seasons and weather can become very cold during the winter nights, often it will fall to just above freezing without harming the plants as it is also very dry. The soil there is well drained and has a fairly high organic content, derived from the decomposition of other plants."
+            ],
+            "packaging": [
+                {
+                    "label": "Weight",
+                    "value": "3kg"
+                },
+                {
+                    "label": "Width",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Length",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Height",
+                    "value": "40cm"
+                }
+            ]
+        },
+        {
+            "id": "OPUNTIA_MICRODASYS",
+            "name": "Opuntia Microdasys",
+            "image": "assets/images/products/opuntia_microdasys.png",
+            "category": {
+                "id": "PLANTAE",
+                "name": "Plantae"
+            },
+            "tags": [
+                "newest",
+                "popular",
+                "trending"
+            ],
+            "types": [
+                {
+                    "id": "OPUNTIA_MICRODASYS_BLUE_CERAMIC_POT",
+                    "name": "Blue Ceramic",
+                    "image": "assets/images/products/opuntia_microdasys.png",
+                    "price": 1200,
+                    "available": true
+                },
+                {
+                    "id": "OPUNTIA_MICRODASYS_CEMENT_ROUND_POT",
+                    "name": "Cement Round",
+                    "image": "assets/images/products/opuntia_microdasys.png",
+                    "price": 850,
+                    "available": true
+                },
+                {
+                    "id": "OPUNTIA_MICRODASYS_WOODEN_POT",
+                    "name": "Wooden",
+                    "image": "assets/images/products/opuntia_microdasys.png",
+                    "price": 1000,
+                    "available": true
+                },
+                {
+                    "id": "OPUNTIA_MICRODASYS_CEMENT_POT",
+                    "name": "Cement",
+                    "image": "assets/images/products/opuntia_microdasys.png",
+                    "price": 900,
+                    "available": true
+                },
+                {
+                    "id": "OPUNTIA_MICRODASYS_PORCELAIN_DIAMOND_POT",
+                    "name": "Porcelain Diamond",
+                    "image": "assets/images/products/opuntia_microdasys.png",
+                    "price": 1800,
+                    "available": true
+                }
+            ],
+            "details": [
+                "The bunny ears cactus is a species of flowering cacti in the Cactaceae family, native to central and northern Mexico. It is also known as Opuntia microdasys, bunny cactus, angel's-wings cactus, or polka-dot cactus",
+                "Bunny Ears Cactus is native to northern Mexico and desert regions stretching into Arizona. This plant will grow 2-3 feet tall and spread 4-6 feet as a mature plant. It needs full sun in the summer months and should be grown in a pot with cactus potting soil to prevent root rot. In the winter months, it requires cooler temperatures of 50-65 degrees F, very little water and partial sun conditions. It may bloom if these conditions are met or it may die if they are not."
+            ],
+            "packaging": [
+                {
+                    "label": "Weight",
+                    "value": "3kg"
+                },
+                {
+                    "label": "Width",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Length",
+                    "value": "60cm"
+                },
+                {
+                    "label": "Height",
+                    "value": "40cm"
+                }
+            ]
+        }
+    ]
+}
